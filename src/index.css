@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Noto Serif SC", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-ink-deep: #0d1414;
+  --color-ink-card: rgba(22, 33, 33, 0.8);
+  --color-gold-accent: #c5a059;
+  --color-gold-muted: rgba(197, 160, 89, 0.3);
+  --color-gold-glow: rgba(197, 160, 89, 0.1);
+  --color-slate-ink: #162121;
+
+  @keyframes danmaku {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes danmaku-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+}
+
+.animate-danmaku-slow {
+  animation: danmaku 80s linear infinite;
+}
+
+.animate-danmaku-fast {
+  animation: danmaku 50s linear infinite;
+}
+
+.animate-danmaku-reverse {
+  animation: danmaku-reverse 65s linear infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-serif bg-ink-deep text-[#e0d8cc];
+  }
+}
+
+.gold-gradient {
+  background: linear-gradient(to right, #c5a059, #8a6d3b);
+}
+
+.ink-border {
+  border-color: var(--color-gold-muted);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+}
